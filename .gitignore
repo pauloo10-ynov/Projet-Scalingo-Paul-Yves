@@ -1,0 +1,20 @@
+# Dépendances (Le dossier le plus lourd, on ne le commit JAMAIS)
+node_modules/
+
+# Variables d'environnement (Contient tes futurs mots de passe et clés privées)
+.env
+.env.local
+.env.sample
+
+# Logs (Fichiers de debug qui s'accumulent pour rien)
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Fichiers système (Inutiles au projet)
+.DS_Store
+Thumbs.db
+
+# Dossiers de build (Si tu compiles ton code plus tard)
+dist/
+build/
