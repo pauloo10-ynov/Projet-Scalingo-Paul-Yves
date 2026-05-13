@@ -1,0 +1,223 @@
+/* ================================
+   VARIABLES — palette et espacements
+   ================================ */
+:root {
+    --bg:           #f4f6f9;
+    --surface:      #ffffff;
+    --primary:      #4f46e5;   /* indigo */
+    --primary-dark: #3730a3;
+    --danger:       #ef4444;
+    --text:         #1e293b;
+    --text-light:   #64748b;
+    --border:       #e2e8f0;
+    --radius:       10px;
+    --shadow:       0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* ================================
+   RESET MINIMAL
+   ================================ */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ================================
+   HEADER
+   ================================ */
+header {
+    background: var(--primary);
+    color: white;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--shadow);
+}
+
+header h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* ================================
+   BADGE STATUT API
+   ================================ */
+.status {
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Classes ajoutées dynamiquement par le JS */
+.status.connected {
+    background: #22c55e;
+    color: white;
+}
+
+.status.disconnected {
+    background: #ef4444;
+    color: white;
+}
+
+/* ================================
+   CONTENU PRINCIPAL
+   ================================ */
+main {
+    flex: 1;
+    max-width: 640px;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* ================================
+   SECTIONS (cards)
+   ================================ */
+section {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+section h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+
+/* ================================
+   FORMULAIRE
+   ================================ */
+.form-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 0.65rem 1rem;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus {
+    border-color: var(--primary);
+}
+
+button#add-btn {
+    padding: 0.65rem 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    white-space: nowrap;
+}
+
+button#add-btn:hover  { background: var(--primary-dark); }
+button#add-btn:active { transform: scale(0.97); }
+
+/* ================================
+   LISTE DE TÂCHES
+   ================================ */
+#task-count {
+    font-weight: 400;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+#task-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Message quand la liste est vide */
+.empty-message {
+    color: var(--text-light);
+    font-style: italic;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+/* Chaque ligne de tâche */
+#task-list li.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background: var(--bg);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    animation: slideIn 0.2s ease;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.task-text {
+    flex: 1;
+    font-size: 0.97rem;
+}
+
+/* Bouton supprimer */
+.delete-btn {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.2rem 0.4rem;
+    border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+}
+
+.delete-btn:hover {
+    color: var(--danger);
+    background: #fef2f2;
+}
+
+/* ================================
+   FOOTER
+   ================================ */
+footer {
+    text-align: center;
+    padding: 1.2rem;
+    color: var(--text-light);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+}

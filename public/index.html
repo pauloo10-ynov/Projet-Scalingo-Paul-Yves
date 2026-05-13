@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- EN-TÊTE -->
+    <header>
+        <h1>TODO App</h1>
+        <div id="api-status" class="status">
+            ⏳ Vérification de l'API...
+        </div>
+    </header>
+
+    <!-- CONTENU PRINCIPAL -->
+    <main>
+
+        <!-- FORMULAIRE : Ajouter une tâche -->
+        <section class="add-task-section">
+            <h2>Ajouter une tâche</h2>
+            <div class="form-group">
+                <input
+                    type="text"
+                    id="task-input"
+                    autocomplete="off"
+                />
+                <button id="add-btn">+ Ajouter</button>
+            </div>
+        </section>
+
+        <!-- LISTE DES TÂCHES -->
+        <section class="tasks-section">
+            <h2>Mes tâches <span id="task-count">(0)</span></h2>
+            <ul id="task-list">
+                <li class="empty-message">Aucune tâche pour l'instant 🎉</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- PIED DE PAGE -->
+    <footer>
+        <p>TODO App — Projet Scalingo 🚀</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
